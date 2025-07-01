@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>Product Recommendation System</h1>
+            </div>
+            <div class="status">
+                <div class="status-dot"></div>
+                <span class="status-text" id="apiStatus">Checking API status...</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="cards-container">
+            <!-- Health Check Card -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-heartbeat"></i> API Health Check
+                </div>
+                <div class="card-body">
+                    <p>Check the status of the recommendation API backend.</p>
+                    <button class="btn" id="healthCheckBtn">
+                        <i class="fas fa-stethoscope"></i> Check Health
+                    </button>
+                    <div class="result-container" id="healthResult" style="display: none;">
+                        <div class="result-title">
+                            <i class="fas fa-info-circle"></i> Health Status
+                        </div>
+                        <div id="healthStatus"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customer Segments Card -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-users"></i> Customer Segments
+                </div>
+                <div class="card-body">
+                    <p>Retrieve all available customer segments for targeting.</p>
+                    <button class="btn" id="getSegmentsBtn">
+                        <i class="fas fa-list"></i> Get Segments
+                    </button>
+                    <div class="result-container" id="segmentsResult" style="display: none;">
+                        <div class="result-title">
+                            <i class="fas fa-tags"></i> Available Segments
+                        </div>
+                        <div class="segments-list" id="segmentsList"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Popular Products Card -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-fire"></i> Popular Products
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="segmentSelect">Customer Segment</label>
+                        <select class="form-control" id="segmentSelect">
+                            <option value="">-- Select a segment --</option>
+                            <!-- Segments will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="popularCount">Number of Recommendations</label>
+                        <input type="number" class="form-control" id="popularCount" min="1" max="20" value="5">
+                    </div>
+                    <button class="btn" id="getPopularBtn">
+                        <i class="fas fa-chart-line"></i> Get Popular Products
+                    </button>
+                    <div class="result-container" id="popularResult" style="display: none;">
+                        <div class="result-title">
+                            <i class="fas fa-gift"></i> Recommended Products
+                        </div>
+                        <ul class="recommendation-list" id="popularList"></ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Personalized Recommendations Card -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-user-cog"></i> Personalized Recommendations
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="customerId">Customer ID</label>
+                        <input type="text" class="form-control" id="customerId" placeholder="Enter customer ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="recommendCount">Number of Recommendations</label>
+                        <input type="number" class="form-control" id="recommendCount" min="1" max="20" value="5">
+                    </div>
+                    <button class="btn" id="getRecommendBtn">
+                        <i class="fas fa-magic"></i> Get Recommendations
+                    </button>
+                    <div class="result-container" id="recommendResult" style="display: none;">
+                        <div class="result-title">
+                            <i class="fas fa-lightbulb"></i> Recommendations
+                        </div>
+                        <div class="strategy-content" id="strategyInfo"></div>
+                        <ul class="recommendation-list" id="recommendList"></ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customer Segmentation Card -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie"></i> Customer Segmentation
+                </div>
+                <div class="card-body">
+                    <p>Visualize customer clusters based on demographics and behavior.</p>
+                    <button class="btn" id="getClusterBtn">
+                        <i class="fas fa-project-diagram"></i> Generate Visualization
+                    </button>
+                    <div class="result-container" id="clusterResult" style="display: none;">
+                        <div class="result-title">
+                            <i class="fas fa-image"></i> Customer Clusters
+                        </div>
+                        <div class="cluster-image" id="clusterImage">
+                            <!-- Image will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>Product Recommendation System &copy; 2023 | Powered by Flask & Machine Learning</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
