@@ -309,3 +309,45 @@ header {
         grid-template-columns: 1fr;
     }
 }
+
+/* Modernized color scheme */
+:root {
+    --primary: #3a86ff;
+    --secondary: #2a6fdb;
+    --success: #06d6a0;
+    --dark: #1b263b;
+    --light: #f8f9fa;
+    --accent: #ff9e00;
+}
+
+/* Improved card design */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.card-header {
+    background: var(--dark);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced buttons */
+.btn {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Professional status indicator */
+.status {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
